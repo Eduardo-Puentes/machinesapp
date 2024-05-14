@@ -16,24 +16,40 @@ if ($conexion->connect_error) {
 
 // Obtener datos del formulario
 $user = $_POST['user'];
-$password = $_POST['password'];
+$password_input = $_POST['password'];
 
-// Consulta para obtener los datos del usuario
-$sql = "SELECT id, username, password FROM users WHERE username = '$user' and password = '$password'";
-$result = $conexion->query($sql);
+// Prepare and bind the statement
+$stmt = $conexion->prepare("SELECT id, username, password FROM users WHERE username = ?");
+$stmt->bind_param("s", $user);
+
+// Set parameters and execute
+$stmt->execute();
+$result = $stmt->get_result();
 
 if ($result->num_rows == 1) {
-    // Contraseña correcta, iniciar sesión
-    $_SESSION["username"] = $user;
-    
-    // Redirigir al usuario a la página de usuarios
-    header('Location: index.php');
-    exit;
+    // Obtener la fila del resultado
+    $row = $result->fetch_assoc();
+    // Verificar la contraseña
+    if (password_verify($password_input, $row['password'])) {
+        // Contraseña correcta, iniciar sesión
+        $_SESSION["username"] = $user;
+        
+        // Regenerate session ID
+        session_regenerate_id(true);
+        
+        // Redirigir al usuario a la página de usuarios
+        header('Location: index.php');
+        exit;
+    } else {
+        // Contraseña incorrecta
+        echo htmlspecialchars("Invalid username or password.", ENT_QUOTES, 'UTF-8');
+    }
 } else {
-    // Contraseña incorrecta
-    echo "Contraseña incorrecta.";
+    // Usuario no encontrado
+    echo htmlspecialchars("Invalid username or password.", ENT_QUOTES, 'UTF-8');
 }
 
 // Cerrar la conexión
+$stmt->close();
 $conexion->close();
 ?>
