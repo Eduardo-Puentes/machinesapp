@@ -70,3 +70,8 @@ body {
     z-index: 1;
 }
 
+.carrera-input {
+    width: 60% !important;
+    white-space: nowrap;
+}
+

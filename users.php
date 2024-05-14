@@ -7,6 +7,13 @@ if(!isset($_SESSION["username"])){
     exit;
 }
 ?>
+
+<style>
+.carrera-input {
+    width: 60% !important;
+}
+
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -71,24 +78,25 @@ if(!isset($_SESSION["username"])){
             <div>
                 <h1>Usuarios Registrados</h1>
                 <div class="tabla-upper">
-                  <table class="table tabla">
+                  <table class="table tabla align-middle">
                       <div class="add-users-form">
                       <thead>
                             <tr>
                                 <th>Matricula</th>
-                                <th>Nombre</th>
+                                <th style="width; 120px;"><p style="margin-bottom: 0; width: 250px;">Nombre</p></th>
                                 <th>Fecha de Inscripción</th>
                                 <th>Carrera</th>
                                 <th>Activaciones</th>
                                 <th>Estado</th>
+                                <th>Acción</th>
                             </tr>
                             <tr>
                             <form action="insertarUsuarios.php" method="post">
                                 <td><input class="form-control" type="text" id="matricula" name="matricula" required></td>
                                 <td><input class="form-control" type="text" id="nombre" name="nombre" required></td>
                                 <td></td>
-                                <td><input class="form-control" type="text" id="carrera" name="carrera" required></td>
-                                <td>0</td>
+                                <td><input class="form-control carrera-input" type="text" id="carrera" name="carrera" required></td>
+                                <td><div style="display: flex; justify-content: center; align-items: start; flex-direction: column; height: 40px;"><p style="padding-top: 5px; padding-bottom: 5px; margin-top: 5px; margin-bottom: 5px;">0</p></div></td>
                                 <td><button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#00B69B" class="bi bi-plus-circle-fill" viewBox="0 0 20 20">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
                                     </svg></button>
@@ -96,7 +104,7 @@ if(!isset($_SESSION["username"])){
                             </form>
                             </tr>
                       </thead>
-</dvi>
+</div>
 
                       <tbody>
                           <?php include './mostrarUsuarios.php'?>
