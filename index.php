@@ -131,7 +131,7 @@ addData();
                 <div class="use-info">
                     <div>
                         <p class="m-0">Máquinas en uso</p>
-                        <p class="info-nums">12/16</p>
+                        <p class="info-nums">1/2</p>
                     </div>
                     
                     <div>
@@ -153,7 +153,7 @@ addData();
                 <div class="use-info">
                     <div>
                         <p class="m-0">Usuarios Registrados</p>
-                        <p class="info-nums">18</p>
+                        <p class="info-nums">2</p>
                     </div>
                     
                     <div>
@@ -164,7 +164,7 @@ addData();
                 <div class="use-info">
                     <div>
                         <p class="m-0">Usuarios Activos</p>
-                        <p class="info-nums">14</p>
+                        <p class="info-nums">1</p>
                     </div>
                     
                     <div>
