@@ -7,6 +7,20 @@ if(!isset($_SESSION["username"])){
     exit;
 }
 ?>
+
+<style>
+.carrera-input {
+    width: 60% !important;
+}
+
+.tabla-upper {
+    background: #000000;
+    width: 50%;
+    margin: 0 auto 0 auto;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+</style>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,7 +60,7 @@ if(!isset($_SESSION["username"])){
             </a>
           </li>
           <li>
-            <a href="./machines.php" class="nav-link active">
+            <a href="./machines.php" class="nav-link link-dark">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
                 <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/>
                 <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/>
@@ -69,30 +83,23 @@ if(!isset($_SESSION["username"])){
           <div style="width: 75vw;">
 
             <div>
-                <div style="display: flex; justify-content: space-between;">
-                <h1>Máquinas</h1>
-                <div style="margin-top: 10px;"><a href="./agregar_maquina.php" class="btn"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00B69B" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
-                                    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
-                                    </svg></a></div>
-                </div>
                 <div class="tabla-upper">
-                  <table class="table tabla">
-                      <thead>
-                          <tr>
-                              <th></th>
-                              <th>Máquina</th>
-                              <th>Hora encendido</th>
-                              <th>Hora apagado</th>
-                              <th>Ubicación</th>
-                              <th>Disponibilidad</th>
-                              <th>Acción</th>
-                          </tr>
-                      </thead>
-
-                      <tbody>
-                          <?php include './mostrar.php'?>
-                      </tbody>
-                  </table>
+                    <h1 class="mb-4">Agregar Máquina</h1>
+                  <form action="insertarMaquinas.php" method="post">
+                    <div>
+                        <label>URL Imagen</label>
+                        <td><input class="form-control" type="text" id="matricula" name="urlimagen" required></td>
+                    </div>
+                    <div>
+                        <label>Nombre</label>
+                        <td><input class="form-control" type="text" id="nombre" name="nombre" required></td>
+                    </div>
+                    <div>
+                        <label>Ubicación</label>
+                        <td><input class="form-control" type="text" id="carrera" name="ubicacion" required></td>
+                    </div>
+                    <div><button class="btn btn-primary" style="width: 100%; margin-top: 20px;" type="submit">Agregar Máquina</button></div>
+                    </form>
                 </div>
                 
             </div>
@@ -102,6 +109,6 @@ if(!isset($_SESSION["username"])){
         </div>
       </div>
       <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-        <script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
+<script src="https://cdn.canvasjs.com/jquery.canvasjs.min.js"></script>
 </body>
 </html>
