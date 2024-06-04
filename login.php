@@ -7,13 +7,21 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <link href="styles.css" rel="stylesheet" type="text/css"/>
     <title>Document</title>
+    <style>
+@media (width <= 780px) {
+    .tabla-upper {
+      width: 67.5% !important;
+    }
+  }
+
+</style>
 </head>
 <body>
     <div class="logistics">
 
 
             <div style="display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh;">
-            <div style="background-color: white; width: 25vw; padding: 30px;border-radius: 14px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
+            <div class="tabla-upper" style="background-color: white; width: 25vw; padding: 30px;border-radius: 14px; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                 <h2 style="text-align:center;">Inicia Sesión</h2>
                 <form action="login_back.php" method="post">
                 <div style="margin-top: 20px; margin-bottom: 20px;">
