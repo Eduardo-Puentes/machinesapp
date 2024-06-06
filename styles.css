@@ -1,0 +1,77 @@
+body {
+    background-color: #F5F6FA;
+}
+
+.logistics {
+    display: flex;
+}
+
+.flex-column {
+    background-color: white;
+    height: 100vh;
+    
+}
+
+.tec-logo {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.main-menu {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.info-base {
+    display: flex;
+    justify-content: space-between;
+}
+
+.use-info {
+    border-radius: 14px;
+    display: flex;
+    background-color: white;
+    padding: 15px;
+    height: 90px;
+    width: 235px;
+    justify-content: space-between;
+}
+
+.use-img {
+    height: 55px;
+}
+
+.info-nums {
+    font-size: 25px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.inner-data-chart {
+    padding: 10px;
+}
+
+.machine-img {
+    height: 30px;
+}
+
+.tabla-upper {
+    border-radius: 14px;
+    padding: 20px;
+    background-color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.sidenavbar {
+    position: fixed;
+    z-index: 1;
+}
+
+.carrera-input {
+    width: 60% !important;
+    white-space: nowrap;
+}
+

@@ -1,17 +1,5 @@
 <?php
-// Conexión a la base de datos
-$servername = "localhost";
-$username = "root"; // Usuario por defecto de MySQL en XAMPP
-$password = ""; // Sin contraseña por defecto en XAMPP
-$dbname = "maquinas"; // Nombre de la base de datos que creaste
-
-// Crear conexión
-$conexion = new mysqli($servername, $username, $password, $dbname);
-
-// Verificar la conexión
-if ($conexion->connect_error) {
-    die("Error de conexión: " . $conexion->connect_error);
-}
+include 'db_connection.php';
 
 // Obtener datos del formulario
 $nombre = $_POST['nombre'];
