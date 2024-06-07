@@ -18,27 +18,29 @@ if(!isset($_SESSION["username"])){
     <script
     src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     </script>
-    <title>Document</title>
+    <title>Dashboard</title>
     <script>
-window.onload = function() {
+      // URL to the PHP script
+      const url = 'getGraphData.php';
 
-  let data = {
-  "price_usd": [
-    [1716652635140, 2],
-    [1717662635240, 3],
-    [1718672635340, 8],
-    [1719682635440, 1],
-    [1720692635540, 11],
-    [1721702635640, 6],
-    [1722712635740, 3],
-    [1723722635840, 7],
-    [1724732635940, 7],
-    [1725742636150, 5],
-    [1726752636250, 5],
-    [1727762636350, 4],
-    [1728772636450, 2]
-  ]
-}
+// Function to fetch data
+window.onload = async function() {
+
+  let data = await fetchData();
+  console.log(data);
+
+  async function fetchData() {
+      try {
+          const response = await fetch(url);
+          const datatmp = await response.json();
+          let data = {
+            "usos": datatmp
+          }
+          return data;
+      } catch (error) {
+          console.error('Error fetching data:', error);
+      }
+  }
  
 var dataPoints = [];
  
@@ -60,7 +62,7 @@ var chart = new CanvasJS.Chart("chartContainer", {
 });
  
 function addData() {
-	var dps = data.price_usd;
+	var dps = data.usos;
 	for (var i = 0; i < dps.length; i++) {
 		dataPoints.push({
 			x: new Date(dps[i][0]),
@@ -170,7 +172,7 @@ addData();
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16">
                   <path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/>
                 </svg>
-                Registrar Usuarios
+                Usuarios
               </a>
             </li>
             <li>
