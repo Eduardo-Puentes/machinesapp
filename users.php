@@ -158,7 +158,8 @@ if(!isset($_SESSION["username"])){
                                 <th>Fecha de Inscripción</th>
                                 <th>Carrera (Siglas)</th>
                                 <th>Activaciones</th>
-                                <th>Acción</th>
+                                <th style="text-align: center;">Estado</th>
+                                <th style="text-align: center;">Acción</th>
                             </tr>
                             <tr>
                             <form action="insertarUsuarios.php" method="post">
@@ -166,6 +167,7 @@ if(!isset($_SESSION["username"])){
                                 <td><input class="form-control" type="text" id="nombre" name="nombre" required></td>
                                 <td></td>
                                 <td><input class="form-control carrera-input" type="text" id="carrera" name="carrera" required></td>
+                                <td><div style="display: flex; justify-content: center; align-items: start; flex-direction: column; height: 40px;"><p style="padding-top: 5px; padding-bottom: 5px; margin-top: 5px; margin-bottom: 5px;"></p></div></td>
                                 <td><div style="display: flex; justify-content: center; align-items: start; flex-direction: column; height: 40px;"><p style="padding-top: 5px; padding-bottom: 5px; margin-top: 5px; margin-bottom: 5px;"></p></div></td>
                                 <td><div style="display: flex; justify-content: center; align-items: start; flex-direction: column; height: 40px; margin-left: 4px"><button class="btn" type="submit"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#00B69B" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
                                     <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3z"/>
