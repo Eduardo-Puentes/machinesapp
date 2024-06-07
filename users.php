@@ -156,7 +156,7 @@ if(!isset($_SESSION["username"])){
                                 <th>Matricula</th>
                                 <th style="width; 120px;"><p style="margin-bottom: 0; width: 250px;">Nombre</p></th>
                                 <th>Fecha de Inscripción</th>
-                                <th>Carrera</th>
+                                <th>Carrera (Siglas)</th>
                                 <th>Activaciones</th>
                                 <th>Acción</th>
                             </tr>
