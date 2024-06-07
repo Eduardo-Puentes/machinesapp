@@ -4,7 +4,7 @@
 include 'db_connection.php';
 
 // Consulta para obtener todas las máquinas
-$sql = "SELECT * FROM usuario";
+$sql = "SELECT * FROM usuario ORDER BY fecha_inscripcion DESC";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {

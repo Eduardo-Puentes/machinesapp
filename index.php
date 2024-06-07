@@ -211,7 +211,7 @@ addData();
                 <div class="use-info m-2 col">
                     <div>
                         <p class="m-0">Máquinas en uso</p>
-                        <p class="info-nums">1/2</p>
+                        <p class="info-nums"><?php include './useMachines.php'?></p>
                     </div>
                     
                     <div>
@@ -222,7 +222,7 @@ addData();
                 <div class="use-info m-2 col">
                     <div>
                         <p class="m-0">Ultima Semana</p>
-                        <p class="info-nums">52</p>
+                        <p class="info-nums"><?php include './getLastWeek.php'?></p>
                     </div>
                     
                     <div>
@@ -233,7 +233,7 @@ addData();
                 <div class="use-info m-2 col">
                     <div>
                         <p class="m-0">Usuarios Registrados</p>
-                        <p class="info-nums">2</p>
+                        <p class="info-nums"><?php include './getUsers.php'?></p>
                     </div>
                     
                     <div>
@@ -244,7 +244,7 @@ addData();
                 <div class="use-info m-2 col">
                     <div>
                         <p class="m-0">Usuarios Activos</p>
-                        <p class="info-nums">1</p>
+                        <p class="info-nums"><?php include './getActiveUsers.php'?></p>
                     </div>
                     
                     <div>
