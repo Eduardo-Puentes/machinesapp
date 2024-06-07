@@ -1,10 +1,14 @@
-
-
 <?php
 include 'db_connection.php';
 
-// Consulta para obtener todas las máquinas
-$sql = "SELECT * FROM logs INNER JOIN maquina ON logs.maquina_id = maquina.id ORDER BY logs.hora DESC LIMIT 10;";
+$limit = 10;
+$page = isset($_GET['page']) ? $_GET['page'] : 1;
+
+// Calculate offset
+$offset = ($page - 1) * $limit;
+
+// Consulta para obtener las máquinas con paginación
+$sql = "SELECT * FROM logs INNER JOIN maquina ON logs.maquina_id = maquina.id ORDER BY logs.hora DESC LIMIT $limit OFFSET $offset;";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
@@ -18,6 +22,24 @@ if ($resultado->num_rows > 0) {
         echo '</tr>';
     }
 }
+
+// Pagination links
+$sql_total = "SELECT COUNT(*) as total FROM logs";
+$result_total = $conexion->query($sql_total);
+$row_total = $result_total->fetch_assoc();
+$total_pages = ceil($row_total['total'] / $limit);
+
+echo '<div class="pagination">';
+for ($i = 1; $i <= $total_pages; $i++) {
+    if ($page == $i) {
+        echo '<a style="margin-right: 20px; color: #0d6efd; text-decoration:none" href="?page=' . $i . '"> ' . $i . ' </a>';    
+    }
+    else {
+        echo '<a style="margin-right: 20px; color: black; text-decoration:none" href="?page=' . $i . '"> ' . $i . ' </a>';
+    }
+    
+}
+echo '</div>';
 
 // Cerrar la conexión
 $conexion->close();
