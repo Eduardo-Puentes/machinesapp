@@ -6,7 +6,7 @@ $page = isset($_GET['page']) ? $_GET['page'] : 1;
 
 $offset = ($page - 1) * $limit;
 
-$sql = "SELECT * FROM logs INNER JOIN maquina ON logs.maquina_id = maquina.id ORDER BY logs.hora DESC LIMIT $limit OFFSET $offset;";
+$sql = "SELECT * FROM logs INNER JOIN maquinahistory ON logs.maquina_id = maquinahistory.id ORDER BY logs.hora DESC LIMIT $limit OFFSET $offset;";
 $resultado = $conexion->query($sql);
 
 if ($resultado->num_rows > 0) {
